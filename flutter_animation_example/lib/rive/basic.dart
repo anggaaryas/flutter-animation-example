@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 class RiveBasicExampleScreen extends StatefulWidget{
   @override
@@ -8,7 +9,8 @@ class RiveBasicExampleScreen extends StatefulWidget{
 class _RiveBasicExampleScreenState extends State<RiveBasicExampleScreen> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Center(
+      child: RiveAnimation.asset('asset/bluebot.riv'),
+    );
   }
 }

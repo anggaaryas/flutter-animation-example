@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class LottieBasicExampleScreen extends StatefulWidget{
   @override
@@ -8,7 +9,8 @@ class LottieBasicExampleScreen extends StatefulWidget{
 class _LottieBasicExampleScreenState extends State<LottieBasicExampleScreen> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Center(
+      child: Lottie.asset('asset/rocket.json', width: 200, height: 200),
+    );
   }
 }

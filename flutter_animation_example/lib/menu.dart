@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation_example/explicit/advance.dart';
 import 'package:flutter_animation_example/explicit/basic.dart';
 import 'package:flutter_animation_example/implicit/basic.dart';
+import 'package:flutter_animation_example/implicit/using_custom_implicit.dart';
 import 'package:flutter_animation_example/lottie/basic.dart';
 import 'package:flutter_animation_example/rive/advance.dart';
 import 'package:flutter_animation_example/rive/basic.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'implicit/basic_2.dart';
 
 class MenuScreen extends StatefulWidget {
   @override
@@ -18,7 +21,13 @@ class _State extends State<MenuScreen> {
   int index = 0;
   List<Map> menus = [
     {'title': 'Implicit (basic)',
+      'screen': ImplicitBasicExample2Screen()
+    },
+    {'title': 'Implicit (basic)',
       'screen': ImplicitBasicExampleScreen()
+    },
+    {'title': ' Custom Implicit',
+      'screen': CustomImplicitExampleScreen()
     },
     {'title': 'Explicit (basic)',
       'screen': ExplicitBasicExampleScreen()

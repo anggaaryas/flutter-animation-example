@@ -22,6 +22,12 @@ class _ImplicitBasic2State extends State<ImplicitBasicExample2Screen> {
             height: 100,
             color: Colors.blue,
           ),
+          Divider(),
+          Container(
+            width: width,
+            height: 100,
+            color: Colors.blue,
+          ),
           AnimatedOpacity(
             opacity: opacity,
             duration: Duration(milliseconds: 750),

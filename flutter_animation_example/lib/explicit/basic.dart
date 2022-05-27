@@ -13,13 +13,13 @@ class _ExplicitBasicExampleScreenState
     extends State<ExplicitBasicExampleScreen> with SingleTickerProviderStateMixin {
 
   late AnimationController animationController;
-  late Animation<double> fanRotationTween;
+  late Animation<double> fanAngleAnimation;
 
 
   @override
   initState(){
     animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 1750));
-    fanRotationTween = Tween(begin: 0.0, end: 360.0).animate(animationController);
+    fanAngleAnimation = Tween(begin: 0.0, end: 360.0).animate(animationController);
     super.initState();
 
     animationController..forward()
@@ -51,7 +51,7 @@ class _ExplicitBasicExampleScreenState
           children: [
             Container(
                 width: double.infinity,
-                color: Color.fromRGBO((fanRotationTween.value * 0.75).toInt(),(fanRotationTween.value * 0.2).toInt(),(fanRotationTween.value).toInt(),1),
+                color: Color.fromRGBO((fanAngleAnimation.value * 0.75).toInt(),(fanAngleAnimation.value * 0.2).toInt(),(fanAngleAnimation.value).toInt(),1),
                 child: Center(child: Text('RTX 3090 SUper', style: GoogleFonts.staatliches(color: Colors.white),))),
             Expanded(
               child: Stack(
@@ -59,14 +59,14 @@ class _ExplicitBasicExampleScreenState
                   Positioned(
                     left: 4,
                     bottom: 4.0,
-                    child: Transform.rotate(angle: fanRotationTween.value,
+                    child: Transform.rotate(angle: fanAngleAnimation.value,
                       child: Icon(Icons.settings, size: 64, color: Colors.yellow,),
                     ),
                   ),
                   Positioned(
                     right: 4,
                     bottom: 4.0,
-                    child: Transform.rotate(angle: fanRotationTween.value,
+                    child: Transform.rotate(angle: fanAngleAnimation.value,
                       child: Icon(Icons.settings, size: 64, color: Colors.yellow,),
                     ),
                   ),

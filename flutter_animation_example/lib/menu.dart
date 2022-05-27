@@ -19,6 +19,9 @@ class MenuScreen extends StatefulWidget {
 
 class _State extends State<MenuScreen> {
   int index = 0;
+
+  bool isPaused = false;
+
   List<Map> menus = [
     {'title': 'Implicit (basic)',
       'screen': ImplicitBasicExample2Screen()
@@ -56,7 +59,17 @@ class _State extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: isPaused? Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.pause_presentation),
+              Text('Paused...')
+            ],
+          ),
+        ): Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: Stack(
@@ -107,6 +120,16 @@ class _State extends State<MenuScreen> {
             SizedBox(height: 32,)
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState( (){
+            isPaused = !isPaused;
+          });
+        },
+        mini: true,
+
+        child: Icon(Icons.pause_presentation),
       ),
     );
   }
